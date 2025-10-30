@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet Chauhan — Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0b0c10;
+      color: #c5c6c7;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(17, 17, 17, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    }
+    .navbar a {
+      color: #66fcf1 !important;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .navbar a:hover {
+      color: #fff !important;
+    }
+
+    /* Hero Section */
+    #home {
+      height: 100vh;
+      background: radial-gradient(circle at top, #1f2833, #0b0c10);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    #home h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #66fcf1;
+      text-shadow: 0 0 20px #45a29e;
+      animation: fadeInDown 2s ease-in-out;
+    }
+    #home p {
+      font-size: 1.2rem;
+      color: #c5c6c7;
+      animation: fadeInUp 2s ease-in-out;
+    }
+    #home .btn-custom {
+      margin-top: 25px;
+      background: transparent;
+      border: 2px solid #66fcf1;
+      color: #66fcf1;
+      padding: 10px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    #home .btn-custom:hover {
+      background: #66fcf1;
+      color: #0b0c10;
+      box-shadow: 0 0 15px #66fcf1;
+    }
+
+    /* About Section */
+    #about {
+      padding: 100px 20px;
+      background: #1f2833;
+      text-align: center;
+    }
+    #about h2 {
+      color: #66fcf1;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    #about p {
+      max-width: 700px;
+      margin: auto;
+      color: #c5c6c7;
+    }
+
+    /* Project Section */
+    #projects {
+      background: #0b0c10;
+      padding: 100px 20px;
+    }
+    #projects h2 {
+      color: #66fcf1;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      color: white;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #45a29e;
+    }
+    .card-title {
+      color: #66fcf1;
+    }
+
+    /* Skills Section */
+    #skills {
+      background: #1f2833;
+      padding: 100px 20px;
+      text-align: center;
+    }
+    #skills h2 {
+      color: #66fcf1;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+    .skill {
+      background: transparent;
+      border: 2px solid #45a29e;
+      color: #66fcf1;
+      padding: 10px 20px;
+      border-radius: 25px;
+      margin: 8px;
+      display: inline-block;
+      transition: 0.3s;
+    }
+    .skill:hover {
+      background: #45a29e;
+      color: #0b0c10;
+      box-shadow: 0 0 10px #45a29e;
+    }
+
+    /* Contact Section */
+    #contact {
+      background: #0b0c10;
+      padding: 100px 20px;
+    }
+    #contact h2 {
+      color: #66fcf1;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+    #contact input, #contact textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff; /* white input text */
+      border-radius: 10px;
+    }
+    /* white placeholder text */
+    #contact input::placeholder,
+    #contact textarea::placeholder {
+      color: #fff;
+      opacity: 0.8;
+    }
+    #contact button {
+      background: #66fcf1;
+      border: none;
+      color: #0b0c10;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    #contact button:hover {
+      background: #45a29e;
+      box-shadow: 0 0 15px #45a29e;
+    }
+
+    /* Footer */
+    footer {
+      background: #1f2833;
+      text-align: center;
+      padding: 20px;
+      color: #c5c6c7;
+    }
+    footer a {
+      color: #66fcf1;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+    footer a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4" href="#">Meet Chauhan</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Project</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="animate__animated animate__fadeIn">
+    <h1>Meet Chauhan</h1>
+    <p>Creative Web Developer & Designer</p>
+    <a href="#projects" class="btn btn-custom">Explore My Work</a>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="animate__animated animate__fadeInUp">
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm <strong>Meet Chauhan</strong>, a passionate web developer who specializes in creating sleek,
+      responsive, and animated websites. I combine creativity with clean code to deliver engaging user experiences.
+    </p>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>My Project</h2>
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card p-3 animate__animated animate__zoomIn">
+            <img src="" class="card-img-top rounded-4" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Quadro-Tower</h5>
+              <p class="card-text">Full animated website using HTML, CSS, Bootstrap, and JS with neon design aesthetics and animations </p>
+              <a href="file:///D:/CODE%20(Meet)/quadro-tower/index.html" class="btn btn-custom" target="_blank" rel="noopener">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div>
+      <span class="skill">HTML</span>
+      <span class="skill">CSS</span>
+      <span class="skill">Bootstrap</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">UI Design</span>
+      <span class="skill">Responsive Web</span>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <form id="contactForm">
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn w-100">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Meet Chauhan | All Rights Reserved</p>
+    <div>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Animation & Popup -->
+  <script>
+    // Scroll Animation
+    const elements = document.querySelectorAll('.animate__animated');
+    window.addEventListener('scroll', () => {
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect().top;
+        if (rect < window.innerHeight - 100) {
+          el.classList.add('animate__fadeInUp');
+        }
+      });
+    });
+
+    // Popup on form submit
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Message Sent Successfully!');
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
